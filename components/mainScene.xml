@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="mainScene" extends="Scene">
+    <script type="text/brightscript" uri="mainScene.brs" />
+    <children>
+        <Label
+            id="title"
+            color="#ffc000"
+            font="font:LargeSystemFont"
+            text="Hello World"
+            translation="[200, 200]" />
+
+        <Label
+            id="subtitle"
+            translation="[200, 275]" />
+
+        <Poster
+            id="tvset"
+            height="543"
+            translation="[200, 400]"
+            uri="pkg:/images/tv.png"
+            width="400" />
+    </children>
+</component>
