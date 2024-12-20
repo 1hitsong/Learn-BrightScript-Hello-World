@@ -29,11 +29,26 @@ sub main (args as dynamic)
     ' Not very useful.
     '
     ' We want our scene to be shown to the user and wait for the user's instructions.
+    ' So we create a loop that keeps the channel open until a close event is called.
     while(true)
-        msg = wait(0, m.port)
+        ' Wait for an event to be posted to the message port
+        msg = wait(0, port)
+
+        ' Get the type of the posted event so we can process it
         msgType = type(msg)
+
+        ' roSGScreenEvent are events sent by our screen component
         if msgType = "roSGScreenEvent"
+
+            ' Now that we know the message event type, we can use its supported methods to determine
+            ' what event was posted.
+            '
+            ' In this case, we're testing if the event is an isScreenClosed event. This means the screen is
+            ' notifying us that it was closed. This means we need to exit the loop so the channel closes.
             if msg.isScreenClosed() then return
+
+            ' You can read more about the roSGScreenEvent event and its supported methods at
+            ' https://developer.roku.com/en-gb/docs/references/brightscript/events/rosgscreenevent.md
         end if
     end while
 end sub
