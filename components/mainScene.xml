@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- XML version and encoding declaration. This declaration must be on the 1st line in
+the XML file. Put this at the top of each of your SceneGraph files. -->
+
+<!-- Define the SceneGraph component. 
+Here we give it a name of "mainScene" and tell Roku that it is extending the existing Scene
+component. This means mainScene will inherit all properties of the Scene component. -->
 <component name="mainScene" extends="Scene">
+
+    <!-- Link this SceneGraph component to its behind-the-scenes BrightScript code. -->
     <script type="text/brightscript" uri="mainScene.brs" />
+
+    <!-- Anything we display in this component must be a child element to the component.
+    To do this in XML, we simply open a <children> tag and put stuff under it. -->
     <children>
+
+        <!-- A label is a simple text component that we can apply some basic styles to.
+        Here we use several properties to customize the text.
+        
+        id: used to target this component from the BrightScript code
+        color: changes the text color
+        font: changes the font family
+        text: the content we want the label to display
+        translation: the position coordinates we want to move the label to
+         -->
         <Label
             id="title"
             color="#ffc000"
@@ -9,15 +30,27 @@
             text="Hello World"
             translation="[200, 200]" />
 
+        <!-- Another label component, but it's missing a text property. We'll set it in the
+        BrightScript code. -->
         <Label
             id="subtitle"
             translation="[200, 275]" />
 
+        <!-- Poster components are used to display images. In this channel it displays an image
+        of a television set.
+        
+        id: used to target this component from the BrightScript code
+        height: the height of the poster component
+        translation: the position coordinates we want to move the poster to
+        uri: the directory and file name of the image we want to display
+        width: the width of the poster component
+         -->
         <Poster
             id="tvset"
             height="543"
             translation="[200, 400]"
             uri="pkg:/images/tv.png"
             width="400" />
+
     </children>
 </component>
