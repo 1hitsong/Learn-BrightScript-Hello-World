@@ -17,6 +17,9 @@ splash_screen_fhd=pkg:/images/splash_fhd.jpg
 splash_screen_hd=pkg:/images/splash_hd.jpg
 splash_screen_sd=pkg:/images/splash_sd.jpg
 
+# Amount of time to display splash image.
+# 1 second = 1000
 splash_min_time=2000
 
+# Comma separated list of resolutions the channel was designed to support
 ui_resolutions=fhd
